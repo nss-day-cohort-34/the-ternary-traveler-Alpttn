@@ -1,0 +1,3 @@
+const factory = Object.create({
+    
+});

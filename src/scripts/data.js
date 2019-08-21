@@ -1,0 +1,3 @@
+const data = Object.create({
+    
+});

@@ -1,0 +1,25 @@
+.blogIntro {
+    border: 5px solid black;
+}
+
+.allDestinations__container {
+    border: 5px solid black;
+    padding: 5px 5px 5px 5px;
+    height: 500px;
+    background-color: white;
+}
+
+.individualDestination__container {
+    border: 5px solid black;
+    padding: 5px 5px 5px 5px;
+    height: 100px;
+    background-color: white;
+}
+
+.form__container {
+    border: 5px solid black;
+    padding: 5px 5px 5px 5px;
+    height: 200px;
+    background-color: white;
+}
+
