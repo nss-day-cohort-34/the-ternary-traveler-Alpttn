@@ -3,7 +3,7 @@ import data from "./data.js";
 import factory from "./factory.js";
 import dom from "./dom.js";
 
-const displayInterests = () => {
+const saveNewInterests = () => {
     //  event handler on add poi button
     const addPOIButton = document.querySelector("#addPOI__button");
     // event listener for add new poi
@@ -25,9 +25,29 @@ const displayInterests = () => {
             );
             console.log(createPOIObj)
             data.postNewInterest(createPOIObj)
-        });
+                .then(() => {
+                    displayAllInterests(placeId);
+                    document.querySelector("#form__container").innerHTML = ""
+                })
+        },
+        )
     });
-
 }
+const displayAllInterests = (placeId) => {
+    data.getInterestsByPlace(placeId)
+        .then(parsedInterests => {
+            const clearContainer = document.querySelector(`#interests__container--${placeId}`)
+            clearContainer.innerHTML = "";
+            parsedInterests.forEach(interest => {
+                dom.renderHTMLCardToDom(interest)
+            });
 
-displayInterests();
+        })
+    }
+
+saveNewInterests();
+
+displayAllInterests(1);
+displayAllInterests(2);
+displayAllInterests(3);
+

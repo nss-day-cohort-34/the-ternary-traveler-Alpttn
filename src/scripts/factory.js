@@ -32,6 +32,21 @@ const factory = Object.create({
             review: reviewInput,
         }
     },
+    createIntrestComponent: (intrest) => {
+        return `<section id="interest__card" class="interest__card">
+    <h3>${intrest.name}</h3>
+    <p>${intrest.description}</p>
+    <p>${intrest.cost}</p>
+    <p>${intrest.review}</p>
+    <button id="deleteEvent--${intrest.id}">
+        Delete Event
+    </button>
+    <button id="editEvent--${intrest.id}">
+        Edit Event
+    </button>
+    </section>
+    `;
+  }
 
 });
 export default factory;

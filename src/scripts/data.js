@@ -9,15 +9,10 @@ const data = Object.create({
           })
             .then(newInterest => newInterest.json())
         },
-        // deleteInterest: (id) => {
-        //     return fetch(`http://localhost:8088/interests/${id}`, {
-        //       method: "DELETE",
-        //       headers: {
-        //         "Content-Type": "application/json"
-        //       },
-        //     })
-        //       .then(deletedInterest => deletedInterest.json())
-        //   },
+        getInterestsByPlace(placeId) {
+            return fetch(`http://localhost:3000/interests?placeId=${placeId}`)
+              .then(interests => interests.json())
+            },
 });
 
 export default data;
