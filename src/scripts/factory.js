@@ -39,10 +39,10 @@ const factory = Object.create({
     <p>${intrest.cost}</p>
     <p>${intrest.review}</p>
     <button id="deleteEvent--${intrest.id}">
-        Delete Event
+        Delete interest
     </button>
     <button id="editEvent--${intrest.id}">
-        Edit Event
+        Edit interest
     </button>
     </section>
     `;

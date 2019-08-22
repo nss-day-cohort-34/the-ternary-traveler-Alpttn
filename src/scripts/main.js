@@ -33,6 +33,34 @@ const saveNewInterests = () => {
         )
     });
 }
+
+// delete button event listener here
+const DestinationsContainer = document.querySelector("#allDestinations__container");
+DestinationsContainer.addEventListener("click", event => {
+    if (event.target.id.startsWith("deleteEvent--")) {
+        const eventId = event.target.id.split("--")[1];
+        data
+            .getSingleInterest(eventId)
+            .then(interestObj => {
+                const placeId = interestObj.placeId;
+                data.deleteInterest(interestObj.id).then(() => displayAllInterests(placeId))
+            })
+    }
+});
+//         .then(parsedEvents => {
+//           const displayEventsContainer = document.querySelector(
+//             "#display__events"
+//           );
+//           displayEventsContainer.innerHTML = "";
+//           console.log("parsedEvents:", parsedEvents);
+//           parsedEvents.forEach(event => {
+//             displayEventsContainer.innerHTML += factory.createEventComponent(
+//               event
+//             );
+//           });
+//         });
+//     }
+
 const displayAllInterests = (placeId) => {
     data.getInterestsByPlace(placeId)
         .then(parsedInterests => {
@@ -43,11 +71,10 @@ const displayAllInterests = (placeId) => {
             });
 
         })
-    }
+}
 
 saveNewInterests();
 
 displayAllInterests(1);
 displayAllInterests(2);
 displayAllInterests(3);
-
