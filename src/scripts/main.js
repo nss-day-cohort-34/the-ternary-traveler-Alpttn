@@ -13,14 +13,15 @@ const displayInterests = () => {
         // when sumbmit button is clicked
         const submitbutton = document.querySelector("#poi__form__submit")
         submitbutton.addEventListener("click", event => {
-            const poiLocation = document.querySelector("#poiLocation");
+            const poiLocation = document.querySelector("#poiLocation__DropDown");
+            const poiId = poiLocation.options[poiLocation.selectedIndex].id;
             const poiName = document.querySelector("#poiName");
             const poiDescription = document.querySelector("#poiDescription");
             const poiCost = document.querySelector("#poiost");
             const poiReview = document.querySelector("#poiReview");
             const createPOIObj = factory.createPOIInputObj(
-                
-            )
+                poiId, poiName.value, poiDescription.value, poiCost.value, poiReview.value
+            );
         });
     });
 
